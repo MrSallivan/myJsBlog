@@ -9,7 +9,6 @@ export class NavigationComponent extends Component {
 
 	init() {
 		this.$el.addEventListener('click', tabClickHandler.bind(this))
-		console.log(this);
 	}
 
 	registerTabs(tabs) {
@@ -22,20 +21,11 @@ export class NavigationComponent extends Component {
 function tabClickHandler(event) {
 
 	event.preventDefault()
-	console.log(event.target);
-	console.log(this.$el);
+
 	if (event.target.classList.contains('tab')) {
-		Array.from(this.$el.querySelectorAll('.tab')).forEach(t => {
-			t.classList.remove('active')
-
-		})
-
+		Array.from(this.$el.querySelectorAll('.tab')).forEach(t => { t.classList.remove('active') })
 		event.target.classList.add('active')
-
-		console.log(this.tabs);
-
 		const activeTab = this.tabs.find(t => t.name === event.target.dataset.name)
-		console.log(activeTab);
 		this.tabs.forEach(t => t.component.hide())
 		activeTab.component.show()
 	}
