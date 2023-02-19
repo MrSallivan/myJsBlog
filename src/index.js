@@ -8,8 +8,8 @@ new HeaderComponent('header')
 
 const navigation = new NavigationComponent('navigation')
 
-const posts = new PostsComponent('post')
 const create = new CreateComponent('create')
+const posts = new PostsComponent('posts')
 const favorite = new FavoriteComponent('favorite')
 
 navigation.registerTabs([
