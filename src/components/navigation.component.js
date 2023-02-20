@@ -23,6 +23,7 @@ function tabClickHandler(event) {
 	event.preventDefault()
 
 	if (event.target.classList.contains('tab')) {
+
 		Array.from(this.$el.querySelectorAll('.tab')).forEach(t => { t.classList.remove('active') })
 		event.target.classList.add('active')
 		const activeTab = this.tabs.find(t => t.name === event.target.dataset.name)
