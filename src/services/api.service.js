@@ -4,6 +4,7 @@ class ApiService {
 	}
 
 	async createPost(post) {
+
 		try {
 
 			const request = new Request(this.url + '/posts.json', {
@@ -11,15 +12,32 @@ class ApiService {
 				body: JSON.stringify(post)
 			})
 
-			const response = await fetch(request)
+			return useRequest(request)
+		} catch (error) {
+			console.error(error)
+		}
+	}
 
-			return await response.json()
+	async fetchPosts() {
+		try {
+
+			const request = new Request(`${this.url}/posts.json`, {
+				method: 'get'
+			})
+
+			return useRequest(request)
 
 		} catch (error) {
 			console.error(error)
 		}
-
 	}
+
 }
+
+async function useRequest(request) {
+	const response = await fetch(request)
+	return await response.json()
+}
+
 
 export const apiService = new ApiService('https://fb-blog-55249-default-rtdb.asia-southeast1.firebasedatabase.app')
