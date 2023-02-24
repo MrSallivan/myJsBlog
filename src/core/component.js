@@ -14,7 +14,6 @@ export class Component {
 	}
 
 	init() { }
-
 	onshow() { }
 	onHide() { }
 }
