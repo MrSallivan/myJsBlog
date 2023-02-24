@@ -36,7 +36,7 @@ function buttonHandler(event) {
 		let favorites = JSON.parse(localStorage.getItem('favorites')) || []
 		const candidate = favorites.find(p => p.id === id)
 
-		if (favorites.includes(id)) {
+		if (candidate) {
 			//remove element
 			$el.textContent = 'Сохранить'
 			$el.classList.add('button-primary')
